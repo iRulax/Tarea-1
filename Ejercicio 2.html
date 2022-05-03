@@ -1,0 +1,14 @@
+<script type="text/javascript"> 
+
+		
+				var fecha = prompt('Introduzca fecha (dd-mm-yyyy): ');
+				var fecha1 = new Date(fecha.substring(6)+'-'+fecha.substring(3, 5)+'-'+fecha.substring(0, 2));
+	
+        var fechaActual= new Date();
+  
+				var dias = fechaActual.valueOf()- fecha1.valueOf();
+        			
+				alert('Han pasado ' + parseInt( dias/(1000*60*60*24)-1) + ' dias');
+			
+		</script>
+	

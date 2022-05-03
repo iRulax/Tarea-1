@@ -1,0 +1,98 @@
+<!-- ATENCION
+Esta practica en su mayoria la saque de internet, sin embargo, la estudie para lograr comprenderla y la documente para facilitar
+su lectura  -->
+
+
+
+<!DOCTYPE html PUBLIC >
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Ejercicio 3</title>
+	<link rel="stylesheet" type="text/css" href="uno.css" media="screen" />
+	<meta name="author" content="Nacho" />
+
+	
+	<script type="text/javascript">
+				
+		function ejercicio2(){ //Inicia la funcion 
+			
+			var cadena = prompt("Introduce la cadena:"); //Introducimos un dato en una ventana emergente prompt
+			var separador = " "; //Creamos un separado, o un espacio
+			var longitud=0; //Definimos la longitud
+			var vector=new Array(); //Creamos un array o lista
+			var posicion=0; //Definimos la posicion en 0
+			// Convertir la cadena en un array
+			if (cadena.length == 0){ //Comparamos en tamaño de la cadena para ver si es igual a 0
+				ejercicio2(); //Manda a llamar la funcion si es que la instruccion anterior se cumple
+				return;
+			} //Termina if
+			
+			for (var i in cadena) //Creamos un for para recorrer la cadena
+			{
+				longitud++;	//La longitud ira aumentando de 1 en 1
+			}
+					
+			vector[posicion]=""; //El vector ira avanzando al igual que la longitud
+			for(var i = 0; i < longitud; i++) //Se crea un for  que inicia en 0 y termina donde la longitud
+			{
+				if(cadena[i]!=separador) //Si la cadena en i posicion es diferente del separador entra
+				{
+					vector[posicion]+=cadena[i]; //y el vector se movera
+				}
+				else //Sino
+				{
+					posicion++; //La posicion aumenta en 1
+					vector[posicion]=""; //El vector ira a esa posicion
+					}	
+			}
+						
+			var resultado = "La cadena \""+cadena+"\" ";
+			 // Eliminar los espacios en blanco (este paso es demasiado largo ya que no se utiliza la funcion "replace")
+			var cadenaSinEspacios = "";
+			for(i in vector) {
+			  if(vector[i] != " ") {
+			    cadenaSinEspacios += vector[i];
+			  }
+			}
+			 
+			var letras = cadenaSinEspacios.split("");
+			var letrasReves = cadenaSinEspacios.split("").reverse();
+			 
+			// Este paso tambien es muy largo porque no se utiliza la sentencia "break"
+			var iguales = true;
+			for(i in letras) {
+			  if(letras[i] == letrasReves[i]) {
+			    // Todo bien
+			  }
+			  else {
+			    // Alguna letra es distinta, por lo que ya no es un palindromo
+			    iguales = false;
+			  }
+			}
+			if(iguales) {
+			  resultado += " es un palíndromo";
+			}
+			else {
+			  resultado += " no es un palíndromo";
+			}
+			 
+            //Este seran los resultados que nos arrojara en forma de alert, que es como una ventana emergente
+			alert("La cadena tiene " + vector.length + " palabras" + "\nLa primera palabra es: " + vector[0] + 
+					"\nLa ultima palabra es: " + vector[vector.length-1] +
+					"\nLa cadena en orden inverso es: " + vector.reverse() + 
+					"\nLas palabras ordenadas de la a a la z son: " + vector.sort() + 
+					"\nLas palabras ordenadas de la z a la a son: " + vector.sort().reverse() + 
+					"\n" + resultado);
+        }
+	</script>
+	
+</head>
+<body>
+	<!-- Pantalla inicial que aparecera al abrir el programa -->
+		<input id="ejecutar" type="button" value="Ingrese cadena" onclick="ejercicio2();" />
+	<!-- Aparecera un boton que nos permitira iniciar el programa -->
+    </div>
+</body>
+</html>
